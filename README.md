@@ -6,4 +6,4 @@
 - gtkwave
 
 使用：
-`make run` 运行仿真。
+`make run a` 运行例子`a`的仿真。
