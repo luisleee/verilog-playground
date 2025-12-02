@@ -8,7 +8,7 @@ module tb_and_gate;
     
 
     initial begin
-        $dumpfile("../sim/wave.vcd");
+        $dumpfile("and_gate.vcd");
         $dumpvars(0, tb_and_gate);
     end
     
