@@ -40,10 +40,18 @@ $(SIM_DIR)/%.vcd: $(SIM_DIR)/%
 	cd $(SIM_DIR) && ../$<
 
 # 主目标定义
-.PHONY: all compile run view clean list
+.PHONY: all run view clean list
 
-# 编译所有测试
-compile: $(EXECUTABLES)
+compile: 
+ifdef TARGET
+	@if [ -f "$(SRC_DIR)/$(TARGET).v" ]; then \
+		echo "Compiling and running $(TARGET)"; \
+		$(COMPILER) $(CFLAGS) -o $(SIM_DIR)/$(TARGET) $(SRC_DIR)/$(TARGET).v; \
+	else \
+		echo "Error: source for $(TARGET) not found in $(SRC_DIR)/"; \
+		false; \
+	fi
+endif
 
 # 如果有指定目标，则编译运行特定目标；否则运行所有目标
 run: 

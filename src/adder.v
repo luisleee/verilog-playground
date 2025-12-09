@@ -138,7 +138,7 @@ module main(input clk, input [3:0] sws, input [3:0] btns, output [7:0] segH, out
     assign leds = {readonly, 4'b0000, display};
 
     // addition
-    add4 A(a, b, 0, s[4], s[3:0]);
+    add4 A(a, b, 1'b0, s[4], s[3:0]);
 
     // twosegs
     twoseg S(toshow, segH, segL);
