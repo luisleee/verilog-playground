@@ -1,3 +1,4 @@
+// 异步清除，低电平有效
 module hc595(input ser, input srclk, input rclk, input srclr_n, input oe_n, output [7:0] Q);
     reg [7:0] sr;
     reg [7:0] storage;
@@ -12,5 +13,5 @@ module hc595(input ser, input srclk, input rclk, input srclr_n, input oe_n, outp
         else storage <= sr;
     end
 
-    assign Q = oe_n ? 8'b0 : storage;
+    assign Q = oe_n ? 8'bz : storage;
 endmodule
